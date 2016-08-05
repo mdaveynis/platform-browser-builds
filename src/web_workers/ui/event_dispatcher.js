@@ -32,6 +32,9 @@ var EventDispatcher = (function () {
             case 'show':
                 serializedEvent = event_serializer_1.serializeMouseEvent(event);
                 break;
+            case 'wheel':
+                serializedEvent = { layerX: event.layerX, layerY: event.layerY, deltaY: event.deltaY };
+                break;
             case 'keydown':
             case 'keypress':
             case 'keyup':
@@ -90,7 +93,14 @@ var EventDispatcher = (function () {
             case 'visibilitychange':
             case 'volumechange':
             case 'waiting':
+            case 'focus':
                 serializedEvent = event_serializer_1.serializeGenericEvent(event);
+                break;
+            case 'offset':
+            case 'scale':
+            case 'nofify':
+            case 'ready':
+                serializedEvent = { detail: event.detail };
                 break;
             case 'transitionend':
                 serializedEvent = event_serializer_1.serializeTransitionEvent(event);
