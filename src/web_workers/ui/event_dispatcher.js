@@ -96,6 +96,7 @@ var EventDispatcher = (function () {
             case 'focus':
                 serializedEvent = event_serializer_1.serializeGenericEvent(event);
                 break;
+            case 'size':
             case 'offset':
             case 'scale':
             case 'nofify':
