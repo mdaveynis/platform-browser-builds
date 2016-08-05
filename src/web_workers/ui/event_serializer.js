@@ -52,6 +52,9 @@ function addTarget(e, serializedEvent) {
         if (lang_1.isPresent(target.files)) {
             serializedEvent['target']['files'] = target.files;
         }
+        if (lang_1.isPresent(target.checked)) {
+            serializedEvent['target']['checked'] = target.checked;
+        }
     }
     return serializedEvent;
 }
